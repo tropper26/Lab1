@@ -1,17 +1,23 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("Hello world!");
-        var liste = new ArrayList<Integer>() {
-            {
-                add(1);
-                add(2);
-                add(3);
-            }
-        };
-        var average = liste.stream().mapToInt(a -> a).average();
+        Scanner reader = new Scanner(System.in);
+        System.out.println("Please input your numbers");
+
+        int num;       // integer will be stored in this variable
+
+        ArrayList<Integer> List = new ArrayList<>();
+
+        while (reader.hasNextInt())
+        {
+            num = reader.nextInt();
+            List.add(num);
+        }
+
+        var average = List.stream().mapToInt(a -> a).average();
 
         System.out.println(average);
     }
